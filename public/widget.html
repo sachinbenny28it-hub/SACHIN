@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<meta name="theme-color" content="#0F1119" />
+<link rel="manifest" href="manifest.webmanifest" />
+<link rel="icon" href="sachin-logo.png" type="image/png" />
+<link rel="apple-touch-icon" href="sachin-logo.png" />
+<title>SACHIN Widget</title>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500&family=IBM+Plex+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/tokens.css" />
+<link rel="stylesheet" href="css/widget.css" />
+</head>
+<body class="widget-page">
+<div class="widget-standalone">
+  <div class="w-head">
+    <span class="sachin-orb w-orb" id="widgetOrb"></span>
+    <div>
+      <div class="w-title">SACHIN</div>
+      <div class="w-line" id="widgetLine">Hey, what's going on?</div>
+    </div>
+    <button class="w-close" id="widgetClose" aria-label="Quit SACHIN">×</button>
+  </div>
+  <div class="w-quick" id="widgetQuick"></div>
+  <div class="w-actions">
+    <button id="widgetTalk">🎙️ Talk</button>
+    <button id="widgetMessage">⌨️ Message</button>
+  </div>
+  <div class="w-composer" id="widgetComposer" hidden>
+    <textarea id="widgetInput" rows="1" maxlength="8000" placeholder="Message SACHIN…"></textarea>
+    <button id="widgetSend">Send</button>
+  </div>
+  <div class="w-response" id="widgetResponse" aria-live="polite"></div>
+  <div class="w-footer"><button id="widgetListen" hidden>🔊 Listen</button><a href="app.html" target="_blank" rel="noopener">Open full SACHIN ↗</a></div>
+  <div class="w-status" id="widgetStatus"></div>
+</div>
+
+<script src="js/api.js"></script>
+<script src="js/voice.js"></script>
+<script src="js/widget.js"></script>
+</body>
+</html>

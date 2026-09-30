@@ -1,0 +1,82 @@
+/* ── SACHIN design tokens ──────────────────────────────────
+   Palette: deep ink night, the logo's electric blue, and the
+   existing teal → amber action gradient.
+   Type: Fraunces (personality/display) + IBM Plex Sans (UI/body)
+         + IBM Plex Mono (code, small data labels).
+------------------------------------------------------------- */
+:root {
+  --ink:        #0F1119;
+  --surface:    #171A26;
+  --surface-2:  #1F2333;
+  --line:       #2B3044;
+  --text:       #F1EEE6;
+  --text-dim:   #A6ABC2;
+  --teal:       #4FD1A5;
+  --amber:      #F2A65A;
+  --electric:   #29B6FF;
+  --electric-strong: #167FE5;
+  --electric-bright: #39BFFF;
+  --coral:      #FF6B6B;
+  --signal-grad: linear-gradient(135deg, var(--teal) 0%, var(--amber) 100%);
+
+  --font-display: "Fraunces", "Iowan Old Style", serif;
+  --font-body: "IBM Plex Sans", -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  --font-mono: "IBM Plex Mono", ui-monospace, SFMono-Regular, monospace;
+
+  --radius-s: 8px;
+  --radius-m: 14px;
+  --radius-l: 22px;
+
+}
+
+* { box-sizing: border-box; }
+
+html, body {
+  margin: 0;
+  padding: 0;
+  background: var(--ink);
+  color: var(--text);
+  font-family: var(--font-body);
+  -webkit-font-smoothing: antialiased;
+}
+
+a { color: inherit; }
+
+button {
+  font-family: var(--font-body);
+  cursor: pointer;
+}
+
+::selection { background: var(--teal); color: var(--ink); }
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after { animation-duration: 0.001ms !important; transition-duration: 0.001ms !important; }
+}
+
+/* The SACHIN logo, used consistently across the app and widget. */
+.sachin-orb {
+  display: block;
+  flex: 0 0 auto;
+  border-radius: 50%;
+  background: #fff url("../sachin-logo.png") center / cover no-repeat;
+  position: relative;
+  overflow: hidden;
+  box-shadow: 0 0 34px rgba(41, 182, 255, 0.18);
+}
+.sachin-orb.listening {
+  animation: sachin-pulse 1.6s ease-in-out infinite;
+}
+@keyframes sachin-pulse {
+  0%, 100% { transform: scale(1); box-shadow: 0 0 32px rgba(41,182,255,0.24); }
+  50% { transform: scale(1.06); box-shadow: 0 0 58px rgba(41,182,255,0.48); }
+}
+
+.visually-hidden {
+  position: absolute; width: 1px; height: 1px;
+  overflow: hidden; clip: rect(0,0,0,0); white-space: nowrap;
+}
+
+:focus-visible {
+  outline: 2px solid var(--teal);
+  outline-offset: 2px;
+}

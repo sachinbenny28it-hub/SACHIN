@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<meta name="theme-color" content="#0F1119" />
+<link rel="manifest" href="manifest.webmanifest" />
+<link rel="icon" href="sachin-logo.png" type="image/png" />
+<link rel="apple-touch-icon" href="sachin-logo.png" />
+<title>SACHIN</title>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/tokens.css" />
+<link rel="stylesheet" href="css/app.css" />
+</head>
+<body>
+
+<div class="shell">
+  <!-- Sidebar -->
+  <aside class="sidebar">
+    <div class="sidebar-top">
+      <div class="brand"><span class="sachin-orb brand-orb" id="sidebarOrb"></span> SACHIN</div>
+      <button class="new-convo-btn" id="newConvoBtn">+ New chat</button>
+    </div>
+
+    <nav class="sidebar-nav">
+      <button class="nav-item active" data-view="dashboard">Dashboard</button>
+      <button class="nav-item" data-view="chat">Chat</button>
+      <button class="nav-item" data-view="memory">Memory Vault</button>
+      <button class="nav-item" data-view="settings">Settings</button>
+    </nav>
+
+    <div class="convo-list" id="convoList"></div>
+
+    <div class="sidebar-bottom">
+      <div class="plan-pill" id="planPill">Free plan</div>
+      <button class="upgrade-btn" id="upgradeBtn">Upgrade to Pro</button>
+      <button class="signout-btn" id="signoutBtn">Sign out</button>
+    </div>
+  </aside>
+
+  <!-- Main -->
+  <main class="main">
+
+    <!-- Dashboard -->
+    <section class="view" id="view-dashboard">
+      <div id="dashboardContent"></div>
+    </section>
+
+    <!-- Chat -->
+    <section class="view hidden" id="view-chat">
+      <div class="chat-header">
+        <button class="new-convo-btn mobile-new-chat" id="newConvoMobile">+ New chat</button>
+        <div class="mode-tabs" id="modeTabs">
+          <button data-mode="friend" class="mode-tab active">Friend</button>
+          <button data-mode="teacher" class="mode-tab">Teacher</button>
+          <button data-mode="coding" class="mode-tab">Coding</button>
+          <button data-mode="coach" class="mode-tab">Coach</button>
+          <button data-mode="daily" class="mode-tab">Daily</button>
+        </div>
+        <div class="response-toggle" id="responseToggle">
+          <button data-mode="voice" aria-label="Voice response" title="Voice response">🔊</button>
+          <button data-mode="text" aria-label="Text response" title="Text response">💬</button>
+          <button data-mode="smart" class="active" aria-label="Smart response" title="Smart response">✨</button>
+        </div>
+      </div>
+
+      <div class="chat-thread" id="chatThread">
+        <div class="chat-empty" id="chatEmpty">
+          <span class="sachin-orb chat-empty-orb"></span>
+          <p>Talk or type — I'm listening either way.</p>
+        </div>
+      </div>
+
+      <div class="chat-input-bar">
+        <button class="mic-btn" id="micBtn" title="Talk to SACHIN" aria-label="Talk to SACHIN">🎙️</button>
+        <textarea id="chatInput" placeholder="Message SACHIN…" rows="1"></textarea>
+        <button class="send-btn" id="sendBtn">Send</button>
+      </div>
+      <p class="chat-hint" id="chatHint"></p>
+    </section>
+
+    <!-- Memory Vault -->
+    <section class="view hidden" id="view-memory">
+      <header class="view-header">
+        <div>
+          <h1>Memory Vault</h1>
+          <p>Your approved memories and any older suggestions waiting for review. Edit, approve, or delete every item here.</p>
+        </div>
+        <div class="memory-header-actions">
+          <button class="danger-btn hidden" id="deleteSelectedBtn">Delete selected</button>
+          <button class="danger-btn" id="clearAllBtn">Clear all memories</button>
+        </div>
+      </header>
+      <div class="memory-add">
+        <select id="memCategory">
+          <option value="goal">Goal</option>
+          <option value="learning">Learning</option>
+          <option value="project">Project</option>
+          <option value="preference">Preference</option>
+          <option value="plan">Plan</option>
+          <option value="instruction">Instruction</option>
+          <option value="context">Context</option>
+          <option value="behaviour">Behaviour</option>
+        </select>
+        <input id="memContent" placeholder="Add something for SACHIN to remember…" />
+        <button class="btn-primary" id="memAddBtn">Add</button>
+      </div>
+      <div class="memory-list" id="memoryList"></div>
+    </section>
+
+    <!-- Settings -->
+    <section class="view hidden" id="view-settings">
+      <header class="view-header"><div><h1>Settings</h1><p>Wake phrase, voice, and privacy controls.</p></div></header>
+      <div class="settings-grid" id="settingsGrid"></div>
+    </section>
+
+  </main>
+</div>
+
+<!-- SACHIN widget launcher (see js/widget-embed.js) -->
+<div id="sachinWidgetRoot"></div>
+<div id="paywallRoot" class="hidden"></div>
+
+<script src="js/api.js"></script>
+<script src="js/voice.js"></script>
+<script src="vendor/revenuecat.js"></script>
+<script src="js/billing.js"></script>
+<script src="js/app.js"></script>
+<script src="js/widget-embed.js"></script>
+</body>
+</html>

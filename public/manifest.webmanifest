@@ -1,0 +1,17 @@
+{
+  "name": "SACHIN — Personal AI Companion",
+  "short_name": "SACHIN",
+  "description": "Your AI, your memory, your voice, your way.",
+  "start_url": "/index.html",
+  "scope": "/",
+  "display": "standalone",
+  "background_color": "#0F1119",
+  "theme_color": "#0F1119",
+  "icons": [
+    { "src": "/sachin-logo-192.png", "sizes": "192x192", "type": "image/png", "purpose": "any" },
+    { "src": "/sachin-logo.png", "sizes": "512x512", "type": "image/png", "purpose": "any" }
+  ],
+  "shortcuts": [
+    { "name": "SACHIN Widget", "short_name": "Widget", "url": "/widget.html", "icons": [{ "src": "/sachin-logo-192.png", "sizes": "192x192", "type": "image/png" }] }
+  ]
+}
